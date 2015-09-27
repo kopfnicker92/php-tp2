@@ -37,12 +37,12 @@
 				$ville = trim (strip_tags($_POST['ville']));
 				$commune = trim (strip_tags($_POST['commune']));
 				$pourquoi = $_POST['pourquoi'];
-				$message = "Message de ". $prenom . $nom ." avec l'adresse mail " . $email . "venant de" . $adresse . ", " . $ville . ", " . $commune . "souhaite devenir bleu pour". $pourquoi;
+				$message = "Message de ". $prenom .' '. $nom ." avec l'adresse mail " . $email .' '. "venant de " . $adresse . ", " . $ville . ", " . $commune .' '. "souhaite devenir bleu pour ". $pourquoi;
 				
 
 				//validation
 				if(!is_valid_email($email)) {
-						echo ('<div class="error"><p>- Est-ce que votre adresse mail est valable?</p></div>');
+						echo ('<div class="error"><p>- Est-ce que ton adresse mail est valable?</p></div>');
 						$error = true;
 					}
 
@@ -85,12 +85,12 @@
 						echo "<div class='error'><p>- Sélectionne une des 3 raisons s'il te plaît</p></div>";
 						$error = true;
 					}
+				
+				if($error == false)  {
+						$message = $message. "\n\nde: $email";
+						$sujet = 'devenir bleu';
+						mail('florvandenburg@gmail.com', $sujet, $message);
 
-				$message = $message. "\n\nde: $email";
-				$sujet = 'devenir bleu';
-				$result = mail('florvandenburg@gmail.com', $sujet, $message);
-
-				if($result && $error == false)  {
 						die('Merci amour le message a été envoyé');
 					}
 
