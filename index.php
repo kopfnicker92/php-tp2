@@ -168,6 +168,10 @@
 
 					<input type="submit" id="button" name="submit" value="Send"></input>			
 			</form> 
+
+			<div class="github">
+				<a href="https://github.com/kopfnicker92/php-tp2">Github</a>
+			</div>
 		</div>
 
 	</body>	
