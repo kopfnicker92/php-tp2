@@ -23,6 +23,8 @@
 
 			if($_POST) {
 
+
+				//honeypot
 				if($_POST['user_email'] !='') {
 						die('Degage petit spammeur!');
 					}
